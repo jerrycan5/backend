@@ -1,0 +1,19 @@
+class Shape {
+    area() {
+        return "Area formula depends on shape.";
+    }
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+
+    area() {
+        return Math.PI * this.radius * this.radius;
+    }
+}
+
+let myCircle = new Circle(5);
+console.log(myCircle.area()); // Output: 78.5398...

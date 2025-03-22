@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="myCar"></div>
+    <p>hello</p>
+    <script>
+        class Car {
+            constructor(brand, model, year) {
+                this.brand = brand;
+                this.model = model;
+                this.year = year;
+            }
+
+            displayinfo() {
+                return `This ${this.brand} ${this.model} was made in the year ${this.year}.`;
+            }
+        }
+
+        // Use correct variable naming
+        const myCar = new Car("Toyota", "Corolla", 2022);
+
+        // Correct function call and spacing
+        document.getElementById("myCar").innerHTML = myCar.displayinfo();
+    </script>
+
+
+</body>
+
+</html>

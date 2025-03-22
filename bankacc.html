@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account OOP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+        input, button {
+            margin: 10px;
+            padding: 8px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Bank Account</h2>
+        <p><strong>Account Holder:</strong> <span id="accountHolder"></span></p>
+        <p><strong>Balance:</strong> $<span id="balance">0</span></p>
+
+        <input type="number" id="amount" placeholder="Enter amount">
+        <button onclick="depositMoney()">Deposit</button>
+    </div>
+
+    <script>
+        class BankAccount {
+            #balance;
+
+            constructor(accountHolder, balance) {
+                this.accountHolder = accountHolder;
+                this.#balance = balance;
+            }
+
+            deposit(amount) {
+                if (amount <= 0) {
+                    document.getElementById("balance").textContent = "Invalid amount!";
+                    return;
+                }
+                this.#balance += amount;
+                this.updateUI();
+            }
+
+            getBalance() {
+                return this.#balance;
+            }
+
+            updateUI() {
+                document.getElementById("balance").textContent = this.#balance;
+                document.getElementById("accountHolder").textContent = this.accountHolder;
+            }
+        }
+
+        let myAccount = new BankAccount("Ezekiel", 1000);
+        myAccount.updateUI();
+
+        function depositMoney() {
+            let amount = parseFloat(document.getElementById("amount").value);
+            myAccount.deposit(amount);
+        }
+    </script>
+
+</body>
+</html>
